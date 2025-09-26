@@ -1,176 +1,286 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>John Doe's Portfolio</title>
+    <title>John Tester | Full-Stack Developer</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://placehold.co/16x16/FB923C/FFFFFF" type="image/x-icon">
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8;
-            color: #333;
+            color: #1E293B; /* Dark Navy */
         }
-        .container {
-            max-width: 800px;
+        .text-dark-navy {
+            color: #1E293B;
         }
-        .profile-picture {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border: 4px solid #fff;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        .bg-light-gray {
+            background-color: #F8FAFC;
         }
-        .card {
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            padding: 2.5rem;
+        .text-medium-gray {
+            color: #64748B;
         }
-        .ai-output-section {
-            white-space: pre-wrap;
-            text-align: left;
-            padding: 1rem;
-            background-color: #f8fafc;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
-            margin-top: 1rem;
-            min-height: 100px;
+        /* Typing animation for hero text */
+        .typing-cursor::after {
+            content: '|';
+            display: inline-block;
+            animation: blink-cursor 0.75s step-end infinite;
         }
-        #loading-indicator {
-            display: none;
+        @keyframes blink-cursor {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
         }
     </style>
 </head>
-<body class="bg-gray-50 flex items-center justify-center min-h-screen p-4">
+<body class="bg-light-gray dark:bg-slate-900 transition-colors duration-300">
 
-    <div class="container mx-auto bg-white rounded-xl shadow-2xl p-8 md:p-12 text-center">
-        <!-- Header Section -->
-        <header class="mb-8">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-2">John Doe</h1>
-            <p class="text-lg md:text-xl text-gray-600 font-medium">Software Developer from Kochi, Kerala</p>
-        </header>
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-light-gray/90 backdrop-blur-sm shadow-md py-4 transition-colors duration-300 dark:bg-slate-900/90">
+        <div class="container mx-auto px-6 lg:px-8 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold text-dark-navy dark:text-white rounded-md hover:text-orange-500 transition-colors duration-200">John Tester</a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="text-medium-gray hover:text-orange-500 font-medium transition-colors duration-200 dark:text-slate-400 dark:hover:text-orange-500">About</a>
+                <a href="#projects" class="text-medium-gray hover:text-orange-500 font-medium transition-colors duration-200 dark:text-slate-400 dark:hover:text-orange-500">Projects</a>
+                <a href="#contact" class="text-medium-gray hover:text-orange-500 font-medium transition-colors duration-200 dark:text-slate-400 dark:hover:text-orange-500">Contact</a>
+                <a href="#" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-full shadow-lg transition-transform duration-200 transform hover:-translate-y-1">Download Resume</a>
+            </nav>
+        </div>
+    </header>
 
-        <!-- Profile Picture and Bio -->
-        <section class="flex flex-col items-center mb-8">
-            <img class="profile-picture rounded-full mb-6 transform transition-transform duration-300 hover:scale-105" 
-                 src="https://placehold.co/150x150/e2e8f0/64748b?text=JD" 
-                 alt="A placeholder image for John Doe's profile picture">
-            <p class="text-gray-700 leading-relaxed max-w-xl mx-auto">
-                A passionate Software Developer with 4 years of experience in various tech stacks like 
-                <span class="font-semibold text-gray-800">MERN</span>, 
-                <span class="font-semibold text-gray-800">Flutter</span> and 
-                <span class="font-semibold text-gray-800">Nuxt.js</span>. 
-                I love to read books and constantly seek to expand my knowledge and skills.
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="container mx-auto px-6 lg:px-8 py-20 md:py-32 flex flex-col items-center text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-dark-navy dark:text-white leading-tight mb-4">
+                <span id="hero-headline">Full-Stack Developer & Digital Problem Solver</span><span class="typing-cursor"></span>
+            </h1>
+            <p class="text-lg md:text-xl text-medium-gray dark:text-slate-400 max-w-2xl mb-8">
+                Crafting Web Experiences That Actually Work
             </p>
-        </section>
-
-        <!-- Contact and Social Links -->
-        <section>
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Connect with me</h2>
-            <div class="flex justify-center gap-4 text-gray-600">
-                <!-- Example of a mailto link -->
-                <a href="mailto:john.doe@example.com" class="hover:text-blue-500 transition-colors duration-200" aria-label="Email me">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.894 7.894a2 2 0 002.828 0L21 8" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6h18a2 2 0 012 2v10a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2z" />
-                    </svg>
-                </a>
-                
-                <!-- Example of a LinkedIn link -->
-                <a href="https://linkedin.com/in/johndoe" target="_blank" rel="noopener noreferrer" class="hover:text-blue-700 transition-colors duration-200" aria-label="LinkedIn profile">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.763s.784-1.763 1.75-1.763 1.75.79 1.75 1.763-.783 1.763-1.75 1.763zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.395-2.585 7-2.761 7 2.476v6.759z"/>
-                    </svg>
-                </a>
-
-                <!-- Example of a GitHub link -->
-                <a href="https://github.com/johndoe" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 transition-colors duration-200" aria-label="GitHub profile">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.809 1.305 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.196-6.086 8.196-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                </a>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#projects" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-transform duration-200 transform hover:-translate-y-1">View My Work</a>
+                <a href="#contact" class="bg-slate-200 hover:bg-slate-300 text-dark-navy font-semibold py-3 px-8 rounded-full shadow-lg transition-transform duration-200 transform hover:-translate-y-1 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600">Let's Build Something</a>
             </div>
         </section>
 
-        <!-- AI-Powered Project Assistant Section -->
-        <section class="mt-12 text-center">
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">AI-Powered Project Assistant</h2>
-            <p class="text-gray-700 leading-relaxed mb-4">
-                Enter a project idea below, and let AI generate a detailed description and tech stack recommendations.
-            </p>
-            <div class="flex flex-col items-center">
-                <textarea id="project-idea" rows="4" class="w-full max-w-xl p-3 border-2 border-gray-300 rounded-md focus:outline-none focus:border-blue-500 transition-colors duration-200" placeholder="e.g., A mobile app to track my reading progress"></textarea>
-                <button id="generate-btn" class="mt-4 px-6 py-2 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-colors duration-200 shadow-md transform hover:scale-105">
-                    Generate Ideas ✨
-                </button>
-            </div>
-            <div id="loading-indicator" class="mt-4 text-gray-500">Loading...</div>
-            <div id="output-container" class="ai-output-section mt-4 text-gray-800">
-                <!-- AI-generated content will be displayed here -->
+        <!-- About Section -->
+        <section id="about" class="container mx-auto px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-navy dark:text-white mb-4">The Human Behind the Code</h2>
+                    <p class="text-medium-gray dark:text-slate-400 leading-relaxed mb-6">
+                        Hey there! I'm John – a passionate full-stack developer who loves turning wild ideas into pixel-perfect reality. Currently crushing my BTech (Class of 2028), but I've been coding since before it was cool to have "developer" in your bio.
+                        <br><br>
+                        My superpower? Building seamless web experiences that make users go "wow, that just works!" From crafting responsive frontends with React and Vue to architecting robust backends with Python and Django, I speak fluent code in multiple dialects.
+                        <br><br>
+                        When I'm not debugging at 2 AM (okay, maybe I am), you'll find me exploring the latest web technologies, creating digital designs in Illustrator, or helping teams bring their visions to life through clear communication and solid project management.
+                        <br><br>
+                        I believe great software isn't just about clean code – it's about solving real problems for real people. Ready to build something amazing together?
+                    </p>
+                    <a href="#contact" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-transform duration-200 transform hover:-translate-y-1">Let's Build Something</a>
+                </div>
+                <div class="flex justify-center md:justify-end">
+                    <img src="https://placehold.co/400x400/FB923C/FFFFFF?text=Your+Photo" alt="A professional photo of John Tester" class="w-64 h-64 md:w-80 md:h-80 rounded-full shadow-xl object-cover transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                </div>
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="mt-8 text-sm text-gray-500">
-            <p>&copy; 2024 John Doe. All rights reserved.</p>
-        </footer>
-    </div>
+        <!-- Skills Section -->
+        <section id="skills" class="container mx-auto px-6 lg:px-8 py-16 bg-white dark:bg-slate-800 rounded-2xl shadow-lg mt-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-dark-navy dark:text-white text-center mb-10">My Technical Toolbox</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <!-- Frontend Skills -->
+                <div class="flex flex-col items-center text-center">
+                    <svg class="h-16 w-16 text-orange-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 8.5L12 15L21 8.5L12 2Z" /><path d="M3 15.5L12 22L21 15.5" /><path d="M3 8.5V15.5" /><path d="M21 8.5V15.5" /></svg>
+                    <span class="text-sm font-medium text-dark-navy dark:text-white">React</span>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <svg class="h-16 w-16 text-orange-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 8.5L12 15L21 8.5L12 2Z" /><path d="M3 15.5L12 22L21 15.5" /><path d="M3 8.5V15.5" /><path d="M21 8.5V15.5" /></svg>
+                    <span class="text-sm font-medium text-dark-navy dark:text-white">Vue.js</span>
+                </div>
+                <!-- Backend Skills -->
+                <div class="flex flex-col items-center text-center">
+                    <svg class="h-16 w-16 text-orange-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><path d="M9 12H15" /><path d="M12 9V15" /></svg>
+                    <span class="text-sm font-medium text-dark-navy dark:text-white">Python</span>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <svg class="h-16 w-16 text-orange-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><path d="M9 12H15" /><path d="M12 9V15" /></svg>
+                    <span class="text-sm font-medium text-dark-navy dark:text-white">Django</span>
+                </div>
+                <!-- Database/Other Skills -->
+                <div class="flex flex-col items-center text-center">
+                    <svg class="h-16 w-16 text-orange-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17L12 7" /><circle cx="12" cy="12" r="10" /><path d="M12 7l-5 5" /><path d="M12 7l5 5" /></svg>
+                    <span class="text-sm font-medium text-dark-navy dark:text-white">SQL</span>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <svg class="h-16 w-16 text-orange-500 mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><path d="M17 11.5a4.5 4.5 0 01-9 0" /></svg>
+                    <span class="text-sm font-medium text-dark-navy dark:text-white">Git</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="container mx-auto px-6 lg:px-8 py-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-dark-navy dark:text-white text-center mb-10">From Concept to Code</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+                    <img src="https://placehold.co/600x400/F8FAFC/1E293B?text=Project+1" alt="Placeholder image for Project 1" class="rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold text-dark-navy dark:text-white mb-2">Project 1: Portfolio V2</h3>
+                    <p class="text-sm text-medium-gray dark:text-slate-400 mb-4">A complete redesign of my personal portfolio, focusing on modern design and performance optimization.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-slate-200 text-slate-600 text-xs font-medium px-2 py-1 rounded-full dark:bg-slate-700 dark:text-slate-300">React</span>
+                        <span class="bg-slate-200 text-slate-600 text-xs font-medium px-2 py-1 rounded-full dark:bg-slate-700 dark:text-slate-300">Tailwind</span>
+                        <span class="bg-slate-200 text-slate-600 text-xs font-medium px-2 py-1 rounded-full dark:bg-slate-700 dark:text-slate-300">Node.js</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-full shadow-lg text-sm transition-transform duration-200 transform hover:-translate-y-1">Live Demo</a>
+                        <a href="#" class="bg-slate-200 hover:bg-slate-300 text-dark-navy font-semibold py-2 px-4 rounded-full shadow-lg text-sm transition-transform duration-200 transform hover:-translate-y-1 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600">GitHub</a>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+                    <img src="https://placehold.co/600x400/F8FAFC/1E293B?text=Project+2" alt="Placeholder image for Project 2" class="rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold text-dark-navy dark:text-white mb-2">Project 2: E-commerce Backend</h3>
+                    <p class="text-sm text-medium-gray dark:text-slate-400 mb-4">A robust backend API for a fictional e-commerce platform with secure payment processing.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-slate-200 text-slate-600 text-xs font-medium px-2 py-1 rounded-full dark:bg-slate-700 dark:text-slate-300">Python</span>
+                        <span class="bg-slate-200 text-slate-600 text-xs font-medium px-2 py-1 rounded-full dark:bg-slate-700 dark:text-slate-300">Django</span>
+                        <span class="bg-slate-200 text-slate-600 text-xs font-medium px-2 py-1 rounded-full dark:bg-slate-700 dark:text-slate-300">PostgreSQL</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-full shadow-lg text-sm transition-transform duration-200 transform hover:-translate-y-1">Live Demo</a>
+                        <a href="#" class="bg-slate-200 hover:bg-slate-300 text-dark-navy font-semibold py-2 px-4 rounded-full shadow-lg text-sm transition-transform duration-200 transform hover:-translate-y-1 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600">GitHub</a>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+                    <img src="https://placehold.co/600x400/F8FAFC/1E293B?text=Project+3" alt="Placeholder image for Project 3" class="rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold text-dark-navy dark:text-white mb-2">Project 3: Real-Time Chat App</h3>
+                    <p class="text-sm text-medium-gray dark:text-slate-400 mb-4">A real-time chat application built for a hackathon, featuring user authentication and live message updates.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-slate-200 text-slate-600 text-xs font-medium px-2 py-1 rounded-full dark:bg-slate-700 dark:text-slate-300">Vue</span>
+                        <span class="bg-slate-200 text-slate-600 text-xs font-medium px-2 py-1 rounded-full dark:bg-slate-700 dark:text-slate-300">Firebase</span>
+                        <span class="bg-slate-200 text-slate-600 text-xs font-medium px-2 py-1 rounded-full dark:bg-slate-700 dark:text-slate-300">Tailwind</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-full shadow-lg text-sm transition-transform duration-200 transform hover:-translate-y-1">Live Demo</a>
+                        <a href="#" class="bg-slate-200 hover:bg-slate-300 text-dark-navy font-semibold py-2 px-4 rounded-full shadow-lg text-sm transition-transform duration-200 transform hover:-translate-y-1 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600">GitHub</a>
+                    </div>
+                </div>
+                <!-- Project Card 4 -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+                    <img src="https://placehold.co/600x400/F8FAFC/1E293B?text=Project+4" alt="Placeholder image for Project 4" class="rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold text-dark-navy dark:text-white mb-2">Project 4: Personal Blog</h3>
+                    <p class="text-sm text-medium-gray dark:text-slate-400 mb-4">A statically generated blog to showcase articles on web development, built with the latest tools.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-slate-200 text-slate-600 text-xs font-medium px-2 py-1 rounded-full dark:bg-slate-700 dark:text-slate-300">Next.js</span>
+                        <span class="bg-slate-200 text-slate-600 text-xs font-medium px-2 py-1 rounded-full dark:bg-slate-700 dark:text-slate-300">MDX</span>
+                        <span class="bg-slate-200 text-slate-600 text-xs font-medium px-2 py-1 rounded-full dark:bg-slate-700 dark:text-slate-300">Vercel</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-full shadow-lg text-sm transition-transform duration-200 transform hover:-translate-y-1">Live Demo</a>
+                        <a href="#" class="bg-slate-200 hover:bg-slate-300 text-dark-navy font-semibold py-2 px-4 rounded-full shadow-lg text-sm transition-transform duration-200 transform hover:-translate-y-1 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600">GitHub</a>
+                    </div>
+                </div>
+                <!-- Project Card 5 -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
+                    <img src="https://placehold.co/600x400/F8FAFC/1E293B?text=Project+5" alt="Placeholder image for Project 5" class="rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold text-dark-navy dark:text-white mb-2">Project 5: Data Visualization Dashboard</h3>
+                    <p class="text-sm text-medium-gray dark:text-slate-400 mb-4">An interactive dashboard to visualize complex datasets, built with D3.js and a Flask backend.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-slate-200 text-slate-600 text-xs font-medium px-2 py-1 rounded-full dark:bg-slate-700 dark:text-slate-300">D3.js</span>
+                        <span class="bg-slate-200 text-slate-600 text-xs font-medium px-2 py-1 rounded-full dark:bg-slate-700 dark:text-slate-300">Flask</span>
+                        <span class="bg-slate-200 text-slate-600 text-xs font-medium px-2 py-1 rounded-full dark:bg-slate-700 dark:text-slate-300">Python</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-full shadow-lg text-sm transition-transform duration-200 transform hover:-translate-y-1">Live Demo</a>
+                        <a href="#" class="bg-slate-200 hover:bg-slate-300 text-dark-navy font-semibold py-2 px-4 rounded-full shadow-lg text-sm transition-transform duration-200 transform hover:-translate-y-1 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="container mx-auto px-6 lg:px-8 py-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-dark-navy dark:text-white text-center mb-10">Let's Create Together</h2>
+            <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-8 md:p-12 max-w-2xl mx-auto">
+                <form action="mailto:john@gmail.com" method="post" enctype="text/plain" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-dark-navy dark:text-white">Name</label>
+                        <input type="text" id="name" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-orange-500 focus:ring focus:ring-orange-500 focus:ring-opacity-50 dark:bg-slate-700 dark:text-white dark:border-slate-600" placeholder="Your Name" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-dark-navy dark:text-white">Email Address</label>
+                        <input type="email" id="email" name="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-orange-500 focus:ring focus:ring-orange-500 focus:ring-opacity-50 dark:bg-slate-700 dark:text-white dark:border-slate-600" placeholder="your@email.com" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-dark-navy dark:text-white">Message</label>
+                        <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3 focus:border-orange-500 focus:ring focus:ring-orange-500 focus:ring-opacity-50 dark:bg-slate-700 dark:text-white dark:border-slate-600" placeholder="Your message..." required></textarea>
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-transform duration-200 transform hover:-translate-y-1">Send Message</button>
+                    </div>
+                </form>
+                <div class="flex justify-center space-x-6 mt-8">
+                    <a href="mailto:john@gmail.com" class="text-dark-navy hover:text-orange-500 transition-colors duration-200 dark:text-white dark:hover:text-orange-500">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M2.003 5.884L12 11.103l9.997-5.219A2 2 0 0020 5H4a2 2 0 00-1.997.884zM18.84 19H5.16a3.5 3.5 0 01-3.1-4.885L12 8.897l9.94 5.218A3.5 3.5 0 0118.84 19z"></path></svg>
+                    </a>
+                    <a href="https://github.com/johntester" target="_blank" class="text-dark-navy hover:text-orange-500 transition-colors duration-200 dark:text-white dark:hover:text-orange-500">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.6.111.82-.26.82-.577v-2.285c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.087-.744.084-.73.084-.73 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.605-2.665-.3-5.466-1.33-5.466-5.931 0-1.31.465-2.382 1.236-3.221-.124-.302-.534-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.006.404 2.291-1.552 3.298-1.23 3.298-1.23.652 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.801 5.626-5.476 5.925.42.36.812 1.127.812 2.275v3.384c0 .317.21.69.825.577C20.565 21.802 24 17.302 24 12c0-6.627-5.373-12-12-12z"></path></svg>
+                    </a>
+                    <a href="https://linkedin.com/in/johntester" target="_blank" class="text-dark-navy hover:text-orange-500 transition-colors duration-200 dark:text-white dark:hover:text-orange-500">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.765s.784-1.765 1.75-1.765 1.75.79 1.75 1.765-.783 1.765-1.75 1.765zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark-navy dark:bg-slate-950 text-white text-center py-8">
+        <p class="text-sm text-slate-400">&copy; 2024 John Tester. All rights reserved.</p>
+    </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const generateBtn = document.getElementById('generate-btn');
-            const projectIdeaInput = document.getElementById('project-idea');
-            const outputContainer = document.getElementById('output-container');
-            const loadingIndicator = document.getElementById('loading-indicator');
+        const heroHeadline = document.getElementById('hero-headline');
+        const headlineText = heroHeadline.textContent;
+        heroHeadline.textContent = '';
+        let i = 0;
+        const speed = 50; // milliseconds
 
-            generateBtn.addEventListener('click', async () => {
-                const userQuery = projectIdeaInput.value;
-                if (!userQuery) {
-                    outputContainer.innerText = "Please enter a project idea to get started.";
-                    return;
-                }
+        function typeWriter() {
+            if (i < headlineText.length) {
+                heroHeadline.textContent += headlineText.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+        
+        window.onload = typeWriter;
 
-                loadingIndicator.style.display = 'block';
-                outputContainer.innerText = '';
-                generateBtn.disabled = true;
+        // Dark mode toggle (optional but good practice)
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
 
-                try {
-                    const payload = {
-                        contents: [{
-                            parts: [{
-                                text: `As a senior software architect, provide a detailed project description, a list of core features, and a recommended tech stack for a project based on the following idea: "${userQuery}". Format your response clearly with headings for each section. Be concise.`
-                            }]
-                        }],
-                        generationConfig: {
-                            responseMimeType: "text/plain",
-                        },
-                        model: "gemini-2.5-flash-preview-05-20"
-                    };
-
-                    const apiKey = "";
-                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    const result = await response.json();
-                    const generatedText = result?.candidates?.[0]?.content?.parts?.[0]?.text || "Failed to generate a response.";
-                    outputContainer.innerText = generatedText;
-
-                } catch (error) {
-                    console.error('Error calling the Gemini API:', error);
-                    outputContainer.innerText = "An error occurred. Please try again later.";
-                } finally {
-                    loadingIndicator.style.display = 'none';
-                    generateBtn.disabled = false;
-                }
-            });
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
         });
     </script>
+
 </body>
 </html>
